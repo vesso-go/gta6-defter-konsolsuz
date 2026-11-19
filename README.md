@@ -4,7 +4,7 @@
 GTA 6 çıktı. Ülkenin yarısı Vice City'de, ben burada hesap makinesindeyim.
 Bu defter, konsolu olmayıp camdan bakan bizler için.
 
-👉 **Aç ve kullan:** https://vesso-go.github.io/gta6, turkce, hesap-makinesi, github-pages, spoiler-free/
+👉 **Aç ve kullan:** https://vesso-go.github.io/gta6-defter-konsolsuz, turkce, hesap-makinesi, github-pages, spoiler-free/
 
 ## Ne yapıyor?
 - **Birikim planı:** Konsol + oyun fiyatını, kenardaki parayı, ayda ayırabileceğini yaz;
