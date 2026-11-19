@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Konsolu olmayanlar için GTA 6 birikim hesabı, spoiler'sız yayın takibi ve notlar.">
+<title>Konsolsuz GTA 6 Defteri</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Gece garajı: asfalt zemin, sodyum lamba sarısı tek vurgu; üstte sekmeli üç araç */
+:root{
+  --bg:#f3f1ec; --panel:#ffffff; --panel2:#ebe8e1; --fg:#17191c; --soluk:#5f6168; --cizgi:#d6d2c8;
+  --vurgu:#c97b10; --vurgu-zemin:#fbe7c6; --iyi:#2f7a4d; --uyari:#b4401f;
+  --f-baslik:"Archivo Black","Arial Black",Impact,sans-serif;
+  --f-metin:"Archivo","Segoe UI",Arial,sans-serif;
+  --f-sayi:"JetBrains Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121417;--panel:#1b1e22;--panel2:#23272c;--fg:#ecebe6;--soluk:#9a9ca3;--cizgi:#30353b;--vurgu:#f2a93b;--vurgu-zemin:#3a2a12;--iyi:#6fcf97;--uyari:#ff8a65;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121417;--panel:#1b1e22;--panel2:#23272c;--fg:#ecebe6;--soluk:#9a9ca3;--cizgi:#30353b;--vurgu:#f2a93b;--vurgu-zemin:#3a2a12;--iyi:#6fcf97;--uyari:#ff8a65;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0}[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font:15px/1.55 var(--f-metin);padding-block:0 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.ic{max-width:920px;margin:0 auto}
+header{padding:28px 0 18px;display:grid;gap:6px}
+.ust{font:700 12px var(--f-sayi);letter-spacing:.14em;text-transform:uppercase;color:var(--vurgu)}
+h1{font:400 clamp(30px,6vw,52px)/1 var(--f-baslik);margin:0;letter-spacing:-.01em;text-wrap:balance}
+header p{margin:4px 0 0;color:var(--soluk);max-width:62ch}
+nav{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 22px}
+nav a{font:700 14px var(--f-metin);text-decoration:none;color:var(--fg);padding:10px 16px;border:1.5px solid var(--cizgi);border-radius:999px;background:var(--panel)}
+nav a[aria-current="page"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+nav a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--vurgu);outline-offset:2px}
+section[hidden]{display:none}
+.izgara{display:grid;gap:16px;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+@media (max-width:760px){.izgara{grid-template-columns:1fr}}
+.kart{background:var(--panel);border:1px solid var(--cizgi);border-radius:14px;padding:18px}
+h2{font:400 20px/1.2 var(--f-baslik);margin:0 0 12px}
+h3{font:700 13px var(--f-sayi);letter-spacing:.1em;text-transform:uppercase;color:var(--soluk);margin:0 0 8px}
+label{display:grid;gap:5px;font-weight:600;font-size:14px}
+.alanlar{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+.alanlar .tam{grid-column:1/-1}
+@media (max-width:420px){.alanlar{grid-template-columns:1fr}}
+input,select,textarea{font:15px var(--f-metin);color:var(--fg);background:var(--panel2);border:1.5px solid var(--cizgi);border-radius:10px;padding:10px 12px;width:100%;min-width:0}
+input[type=number]{font-family:var(--f-sayi)}
+textarea{min-height:70px;resize:vertical}
+.ipucu{font-size:12.5px;color:var(--soluk);font-weight:400}
+.ornek{display:inline-block;font:700 11px var(--f-sayi);letter-spacing:.08em;text-transform:uppercase;color:var(--vurgu);background:var(--vurgu-zemin);border-radius:6px;padding:2px 7px}
+.sonuc-buyuk{font:700 clamp(34px,7vw,54px)/1 var(--f-sayi);font-variant-numeric:tabular-nums;margin:6px 0 2px}
+.sonuc-alt{color:var(--soluk)}
+.cubuk{height:14px;border-radius:999px;background:var(--panel2);overflow:hidden;margin:14px 0 6px;border:1px solid var(--cizgi)}
+.cubuk div{height:100%;width:0;background:var(--vurgu);transition:width .4s}
+@media (prefers-reduced-motion:reduce){.cubuk div{transition:none}}
+dl{display:grid;grid-template-columns:1fr auto;gap:6px 12px;margin:14px 0 0}
+dt{color:var(--soluk)}dd{margin:0;font:600 15px var(--f-sayi);font-variant-numeric:tabular-nums;text-align:right}
+.not{border-left:3px solid var(--vurgu);background:var(--vurgu-zemin);padding:10px 12px;border-radius:0 10px 10px 0;font-size:14px;margin-top:14px}
+.not.kirmizi{border-color:var(--uyari)}
+.btn{font:700 14px var(--f-metin);border:0;border-radius:10px;padding:11px 16px;background:var(--fg);color:var(--bg);cursor:pointer}
+.btn.ince{background:transparent;color:var(--fg);border:1.5px solid var(--cizgi)}
+.satir{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+ul.liste{list-style:none;margin:0;padding:0}
+ul.liste li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:start;padding:12px 0;border-top:1px solid var(--cizgi)}
+ul.liste li:first-child{border-top:0}
+ul.liste input[type=checkbox]{width:22px;height:22px;margin-top:2px;accent-color:var(--vurgu)}
+.li-bas{font-weight:700;overflow-wrap:anywhere}
+.li-alt{font-size:13px;color:var(--soluk);overflow-wrap:anywhere}
+li.bitti .li-bas{text-decoration:line-through;color:var(--soluk)}
+.sil{background:none;border:0;color:var(--soluk);font-size:18px;cursor:pointer;padding:2px 6px}
+.etiket{display:inline-block;font:600 12px var(--f-sayi);background:var(--panel2);border:1px solid var(--cizgi);border-radius:6px;padding:1px 7px;margin-right:4px}
+.sinir{display:flex;gap:12px;align-items:center;background:var(--fg);color:var(--bg);border-radius:14px;padding:14px 18px;margin-bottom:16px}
+.sinir b{font:400 15px var(--f-baslik)}
+.sinir span{min-width:0;overflow-wrap:anywhere}
+.bos{color:var(--soluk);padding:8px 0}
+footer{margin-top:32px;color:var(--soluk);font-size:12.5px;border-top:1px solid var(--cizgi);padding-top:14px}
+</style>
+</head>
+<body>
+
+<div class="ic">
+<header>
+  <div class="ust">Konsolum yok · ama hazırlanıyorum</div>
+  <h1>Konsolsuz GTA 6 Defteri</h1>
+  <p>Konsola para biriktir, taksitin gerçek maliyetini gör, yayınları spoiler yemeden takip et, oyunla ilgili notlarını tek yerde tut. Her şey sadece senin tarayıcında saklanır.</p>
+</header>
+
+<nav aria-label="Bölümler">
+  <a href="#birikim" data-sekme="birikim">Birikim planı</a>
+  <a href="#takip" data-sekme="takip">Spoiler'sız takip</a>
+  <a href="#notlar" data-sekme="notlar">Notlar</a>
+</nav>
+
+<!-- BİRİKİM -->
+<section id="s-birikim">
+  <div class="izgara">
+    <div class="kart">
+      <h2>Ne lazım, ne var?</h2>
+      <p class="ipucu" style="margin:0 0 12px">Kutulardaki rakamlar <span class="ornek">örnek</span>; gerçek fiyat değil. Mağazadaki güncel fiyatlarla değiştir.</p>
+      <div class="alanlar">
+        <label class="tam" for="cihaz">Cihaz
+          <select id="cihaz">
+            <option>PS5 (yeni)</option><option>PS5 (ikinci el)</option><option>Xbox Series X</option><option>Xbox Series S (yeni)</option><option>Xbox Series S (ikinci el)</option>
+          </select>
+        </label>
+        <label for="cihazFiyat">Cihaz fiyatı (₺)<input id="cihazFiyat" type="number" min="0" step="100" inputmode="numeric"></label>
+        <label for="oyunFiyat">Oyun fiyatı (₺)<input id="oyunFiyat" type="number" min="0" step="50" inputmode="numeric"></label>
+        <label for="birikim">Şu an kenarda (₺)<input id="birikim" type="number" min="0" step="100" inputmode="numeric"></label>
+        <label for="aylik">Ayda ayırabileceğim (₺)<input id="aylik" type="number" min="0" step="100" inputmode="numeric"></label>
+      </div>
+      <h3 style="margin-top:20px">Taksitle alsam?</h3>
+      <div class="alanlar">
+        <label for="taksitSayi">Taksit sayısı<input id="taksitSayi" type="number" min="0" step="1" inputmode="numeric"></label>
+        <label for="taksitTutar">Aylık taksit (₺)<input id="taksitTutar" type="number" min="0" step="50" inputmode="numeric"></label>
+      </div>
+      <p class="ipucu">Mağazanın sana söylediği taksit sayısını ve aylık tutarı yaz; toplamda ne ödediğini aşağıda görürsün.</p>
+    </div>
+
+    <div class="kart" aria-live="polite">
+      <h3>Biriktirerek</h3>
+      <div class="sonuc-buyuk" id="sAy">–</div>
+      <div class="sonuc-alt" id="sTarih">Rakamları gir</div>
+      <div class="cubuk" role="progressbar" aria-label="Birikim ilerlemesi" aria-valuemin="0" aria-valuemax="100"><div id="sCubuk"></div></div>
+      <div class="sonuc-alt" id="sYuzde"></div>
+      <dl>
+        <dt>Toplam hedef</dt><dd id="dHedef">–</dd>
+        <dt>Eksik kalan</dt><dd id="dKalan">–</dd>
+      </dl>
+      <h3 style="margin-top:22px">Taksitle</h3>
+      <dl>
+        <dt>Toplam ödeme</dt><dd id="dTaksitToplam">–</dd>
+        <dt>Peşine göre fark</dt><dd id="dFark">–</dd>
+      </dl>
+      <div class="not" id="yorum">Rakamları girince burada kısa bir değerlendirme çıkar.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TAKİP -->
+<section id="s-takip" hidden>
+  <div class="sinir"><b>Spoiler sınırım</b><span id="sinirYazi">Henüz belirlemedin.</span></div>
+  <div class="izgara">
+    <div class="kart">
+      <h2>İzleyeceklerim</h2>
+      <ul class="liste" id="takipListe"></ul>
+    </div>
+    <div class="kart">
+      <h2>Ekle</h2>
+      <form id="takipForm" class="alanlar">
+        <label class="tam" for="tBaslik">Ne izleyeceksin?<input id="tBaslik" required placeholder="Örn. Bir yayıncının 2. bölüm yayını"></label>
+        <label for="tKanal">Kanal / kişi<input id="tKanal" placeholder="Kanal adı"></label>
+        <label for="tLink">Bağlantı<input id="tLink" type="url" placeholder="https://"></label>
+        <label class="tam" for="tNot">Not<input id="tNot" placeholder="Örn. 1:20:00'de kaldım"></label>
+        <div class="tam satir"><button class="btn" type="submit">Listeye ekle</button></div>
+      </form>
+      <h3 style="margin-top:22px">Spoiler sınırı</h3>
+      <form id="sinirForm" class="satir">
+        <input id="sinirGir" placeholder="Örn. Hikâyede 3. bölümden sonrasını görmek istemiyorum" style="flex:1 1 220px">
+        <button class="btn ince" type="submit">Kaydet</button>
+      </form>
+      <p class="ipucu">Yayın açmadan önce bu sınıra bir göz at; başlıklarda ve önerilen videolarda da spoiler olabilir.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NOTLAR -->
+<section id="s-notlar" hidden>
+  <div class="izgara">
+    <div class="kart">
+      <h2>Notlarım</h2>
+      <div class="satir" style="margin-bottom:10px"><input id="notAra" type="search" placeholder="Notlarda ara" aria-label="Notlarda ara"></div>
+      <ul class="liste" id="notListe"></ul>
+    </div>
+    <div class="kart">
+      <h2>Yeni not</h2>
+      <form id="notForm" class="alanlar">
+        <label class="tam" for="nBaslik">Başlık<input id="nBaslik" required placeholder="Örn. İlk oynayınca denenecekler"></label>
+        <label class="tam" for="nMetin">Not<textarea id="nMetin" placeholder="Yayınlarda gördüğün yerler, merak ettiğin görevler, ayarlar…"></textarea></label>
+        <label class="tam" for="nEtiket">Etiketler<input id="nEtiket" placeholder="virgülle ayır: yer, görev, araba"></label>
+        <div class="tam satir"><button class="btn" type="submit">Notu kaydet</button></div>
+      </form>
+      <h3 style="margin-top:22px">Yedek</h3>
+      <p class="ipucu" style="margin-top:0">Veriler sadece bu tarayıcıda. Başka cihaza taşımak için kopyala, orada yapıştır.</p>
+      <div class="satir"><button class="btn ince" id="yedekAl" type="button">Yedeği kopyala</button><button class="btn ince" id="yedekYukle" type="button">Yedeği yapıştır</button></div>
+      <textarea id="yedekAlan" hidden aria-label="Yedek metni" style="margin-top:10px"></textarea>
+      <div class="ipucu" id="yedekDurum"></div>
+    </div>
+  </div>
+</section>
+
+<footer>Kişisel takip aracıdır. Rockstar Games, Sony ya da Microsoft ile bir bağı yoktur; resmî değildir. Fiyatlar kullanıcının girdiği rakamlardır.</footer>
+</div>
+
+<script>
+(function(){
+  var ANAHTAR='gta6-defter-v1';
+  var VARSAYILAN={
+    birikim:{cihaz:'PS5 (yeni)',cihazFiyat:30000,oyunFiyat:3000,birikim:5000,aylik:4000,taksitSayi:9,taksitTutar:4200},
+    takip:[{id:1,baslik:'Örnek: İlk 2 saatlik oynanış yayını',kanal:'Bir yayıncı',link:'',not:'Örnek kayıt, silebilirsin',bitti:false}],
+    sinir:'Örnek: Ana hikâyenin ilk bölümünden sonrasını izlemiyorum',
+    notlar:[{id:1,baslik:'Örnek: İlk denenecekler',metin:'Yayınlarda gördüğüm yerleri buraya yazacağım.',etiket:['plan'],t:Date.now()}]
+  };
+  var D;
+  try{D=JSON.parse(localStorage.getItem(ANAHTAR))}catch(e){D=null}
+  if(!D||typeof D!=='object')D=JSON.parse(JSON.stringify(VARSAYILAN));
+  function kaydet(){try{localStorage.setItem(ANAHTAR,JSON.stringify(D))}catch(e){}}
+  function $(id){return document.getElementById(id)}
+  function e(t){return String(t==null?'':t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  var TL=new Intl.NumberFormat('tr-TR',{maximumFractionDigits:0});
+  function tl(n){return TL.format(Math.round(n))+' ₺'}
+
+  /* Sekmeler */
+  var SEKME=['birikim','takip','notlar'];
+  function goster(){var h=(location.hash||'').slice(1);if(SEKME.indexOf(h)<0)h='birikim';
+    SEKME.forEach(function(s){$('s-'+s).hidden=s!==h});
+    [].forEach.call(document.querySelectorAll('nav a'),function(a){if(a.dataset.sekme===h)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')})}
+  window.addEventListener('hashchange',goster);goster();
+
+  /* Birikim */
+  var B=D.birikim;
+  ['cihaz','cihazFiyat','oyunFiyat','birikim','aylik','taksitSayi','taksitTutar'].forEach(function(k){var el=$(k);el.value=B[k]==null?'':B[k];
+    el.addEventListener('input',function(){B[k]=el.type==='number'?(el.value===''?null:+el.value):el.value;kaydet();hesapla()})});
+  function hesapla(){
+    var hedef=(B.cihazFiyat||0)+(B.oyunFiyat||0),var_=B.birikim||0,aylik=B.aylik||0,kalan=Math.max(0,hedef-var_);
+    var yuzde=hedef?Math.min(100,var_/hedef*100):0;
+    $('dHedef').textContent=hedef?tl(hedef):'–';$('dKalan').textContent=hedef?tl(kalan):'–';
+    $('sCubuk').style.width=yuzde+'%';$('sCubuk').parentNode.setAttribute('aria-valuenow',Math.round(yuzde));
+    $('sYuzde').textContent=hedef?'Hedefin %'+Math.round(yuzde)+'\'i hazır':'';
+    var ay=null;
+    if(!hedef){$('sAy').textContent='–';$('sTarih').textContent='Rakamları gir'}
+    else if(kalan===0){$('sAy').textContent='Hazır';$('sTarih').textContent='Birikim hedefi karşılıyor'}
+    else if(!aylik){$('sAy').textContent='?';$('sTarih').textContent='Aylık ayırabileceğin tutarı gir'}
+    else{ay=Math.ceil(kalan/aylik);$('sAy').textContent=ay+' ay';var t=new Date();t.setMonth(t.getMonth()+ay);
+      $('sTarih').textContent='Bu hızla '+t.toLocaleDateString('tr-TR',{month:'long',year:'numeric'})+' civarı'}
+    var ts=B.taksitSayi||0,tt=B.taksitTutar||0,toplam=ts*tt,fark=toplam-(B.cihazFiyat||0);
+    $('dTaksitToplam').textContent=toplam?tl(toplam):'–';
+    $('dFark').textContent=toplam&&B.cihazFiyat?(fark>=0?'+':'')+tl(fark)+(B.cihazFiyat?' (%'+Math.round(fark/B.cihazFiyat*100)+')':''):'–';
+    var y=$('yorum');y.className='not';
+    if(!hedef){y.textContent='Rakamları girince burada kısa bir değerlendirme çıkar.'}
+    else if(toplam&&fark>0&&ay!=null&&ay<=ts){y.className='not kirmizi';y.textContent='Biriktirerek '+ay+' ayda alabiliyorsun; taksit '+ts+' ay sürüyor ve '+tl(fark)+' fazla ödetiyor. Beklemek daha ucuz.'}
+    else if(toplam&&fark>0){y.className='not kirmizi';y.textContent='Taksit peşine göre '+tl(fark)+' fazla. Taksiti seçeceksen aylık tutarın gerçekten bütçene sığdığından emin ol.'}
+    else if(kalan===0){y.textContent='Paran hazır. Fiyatları son kez karşılaştır, ikinci elde garanti ve fatura iste.'}
+    else if(ay!=null){y.textContent='Ayda '+tl(aylik)+' ile yaklaşık '+ay+' ay. İkinci el seçeneğini seçip süreyi karşılaştırabilirsin.'}
+    else{y.textContent='Aylık ayırabileceğin tutarı girersen ne zaman alabileceğini hesaplarım.'}
+  }
+  hesapla();
+
+  /* Takip */
+  function sinirCiz(){$('sinirYazi').textContent=D.sinir||'Henüz belirlemedin.';$('sinirGir').value=D.sinir||''}
+  function takipCiz(){var ul=$('takipListe');
+    if(!D.takip.length){ul.innerHTML='<li class="bos" style="display:block">Liste boş. Sağdan izleyeceğin ilk yayını ekle.</li>';return}
+    ul.innerHTML=D.takip.map(function(x){return '<li class="'+(x.bitti?'bitti':'')+'"><input type="checkbox" aria-label="İzlendi" data-tik="'+x.id+'"'+(x.bitti?' checked':'')+'>'
+      +'<div><div class="li-bas">'+(x.link?'<a href="'+e(x.link)+'" target="_blank" rel="noopener">'+e(x.baslik)+'</a>':e(x.baslik))+'</div><div class="li-alt">'+e([x.kanal,x.not].filter(Boolean).join(' · '))+'</div></div>'
+      +'<button class="sil" aria-label="Sil" data-tsil="'+x.id+'">×</button></li>'}).join('')}
+  $('takipForm').addEventListener('submit',function(ev){ev.preventDefault();var b=$('tBaslik').value.trim();if(!b)return;
+    var link=$('tLink').value.trim();if(link&&!/^https?:\/\//i.test(link))link='';
+    D.takip.unshift({id:Date.now(),baslik:b,kanal:$('tKanal').value.trim(),link:link,not:$('tNot').value.trim(),bitti:false});
+    kaydet();takipCiz();this.reset();$('tBaslik').focus()});
+  $('takipListe').addEventListener('click',function(ev){var t=ev.target;
+    if(t.dataset.tik){var x=D.takip.filter(function(y){return y.id==t.dataset.tik})[0];if(x){x.bitti=t.checked;kaydet();takipCiz()}}
+    if(t.dataset.tsil){D.takip=D.takip.filter(function(y){return y.id!=t.dataset.tsil});kaydet();takipCiz()}});
+  $('sinirForm').addEventListener('submit',function(ev){ev.preventDefault();D.sinir=$('sinirGir').value.trim();kaydet();sinirCiz()});
+  sinirCiz();takipCiz();
+
+  /* Notlar */
+  function notCiz(){var q=$('notAra').value.toLocaleLowerCase('tr'),ul=$('notListe');
+    var l=D.notlar.filter(function(n){return !q||(n.baslik+' '+n.metin+' '+(n.etiket||[]).join(' ')).toLocaleLowerCase('tr').indexOf(q)>=0});
+    if(!l.length){ul.innerHTML='<li class="bos" style="display:block">'+(q?'Aramaya uyan not yok.':'Henüz not yok. Sağdan ilk notunu yaz.')+'</li>';return}
+    ul.innerHTML=l.map(function(n){return '<li><span></span><div><div class="li-bas">'+e(n.baslik)+'</div><div class="li-alt" style="white-space:pre-wrap">'+e(n.metin)+'</div><div style="margin-top:6px">'+(n.etiket||[]).map(function(t){return '<span class="etiket">'+e(t)+'</span>'}).join('')+'</div></div><button class="sil" aria-label="Notu sil" data-nsil="'+n.id+'">×</button></li>'}).join('')}
+  $('notForm').addEventListener('submit',function(ev){ev.preventDefault();var b=$('nBaslik').value.trim();if(!b)return;
+    D.notlar.unshift({id:Date.now(),baslik:b,metin:$('nMetin').value.trim(),etiket:$('nEtiket').value.split(',').map(function(s){return s.trim()}).filter(Boolean),t:Date.now()});
+    kaydet();notCiz();this.reset()});
+  $('notListe').addEventListener('click',function(ev){var t=ev.target;if(t.dataset.nsil){D.notlar=D.notlar.filter(function(n){return n.id!=t.dataset.nsil});kaydet();notCiz()}});
+  $('notAra').addEventListener('input',notCiz);notCiz();
+
+  /* Yedek */
+  var alan=$('yedekAlan'),durum=$('yedekDurum');
+  $('yedekAl').addEventListener('click',function(){var m=JSON.stringify(D);alan.hidden=false;alan.value=m;
+    (navigator.clipboard?navigator.clipboard.writeText(m):Promise.reject()).then(function(){durum.textContent='Kopyalandı. Diğer cihazda "Yedeği yapıştır"a bas.'})
+      .catch(function(){alan.select();durum.textContent='Metin seçildi; Ctrl+C ile kopyala.'})});
+  $('yedekYukle').addEventListener('click',function(){
+    if(alan.hidden||!alan.value.trim()){alan.hidden=false;alan.value='';alan.focus();durum.textContent='Yedeği bu kutuya yapıştır, sonra tekrar "Yedeği yapıştır"a bas.';return}
+    try{var y=JSON.parse(alan.value);if(!y||!y.birikim||!Array.isArray(y.takip)||!Array.isArray(y.notlar))throw 0;
+      D=y;kaydet();durum.textContent='Yedek yüklendi.';setTimeout(function(){location.reload()},400)}
+    catch(x){durum.textContent='Bu metin geçerli bir yedek değil.'}});
+})();
+</script>
+</body>
+</html>
